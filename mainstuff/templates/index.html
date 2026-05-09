@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Lead — LeadRank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #4ade80;
+      --accent2: #22d3ee;
+      --text: #e8e8f0;
+      --muted: #5a5a72;
+    }
+    html, body { min-height: 100%; background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(74,222,128,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.02) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; z-index: 0; }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 32px; }
+    h1 { font-family: 'Syne', sans-serif; font-size: 32px; margin-bottom: 10px; }
+    p { color: var(--muted); margin-bottom: 24px; }
+    .field { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    input, textarea, select { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 14px; }
+    textarea { min-height: 120px; resize: vertical; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    button, .button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border: none; border-radius: 10px; background: var(--accent); color: #0a0a0f; font-family: 'Syne', sans-serif; font-weight: 700; cursor: pointer; text-decoration: none; }
+    .button-outlined { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>New Lead</h1>
+      <p>Fill in the customer details below and submit a new HVAC lead for analysis.</p>
+      <form action="/submit" method="post">
+        <div class="field">
+          <label for="name">Customer name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required />
+        </div>
+        <div class="field">
+          <label for="problem">Problem description</label>
+          <textarea id="problem" name="problem" required></textarea>
+        </div>
+        <div class="field">
+          <label for="urgency">Urgency</label>
+          <select id="urgency" name="urgency" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div class="button-row">
+          <button type="submit">Submit lead</button>
+          <a class="button button-outlined" href="/dashboard">Back to dashboard</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lead Submitted — LeadRank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #4ade80;
+      --text: #e8e8f0;
+      --muted: #5a5a72;
+    }
+    html, body { min-height: 100%; background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(74,222,128,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.02) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; z-index: 0; }
+    .container { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 44px 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 34px; }
+    h1 { font-family: 'Syne', sans-serif; font-size: 32px; margin-bottom: 10px; }
+    p { color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .score { font-size: 24px; color: var(--accent); margin-bottom: 20px; }
+    .section { margin-bottom: 20px; }
+    .label { font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .content { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border: none; border-radius: 10px; background: var(--accent); color: #0a0a0f; font-family: 'Syne', sans-serif; font-weight: 700; cursor: pointer; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Lead Submitted</h1>
+      <p>Your lead has been analyzed and saved.</p>
+      <div class="score">Score: {{ lead.score }}/100</div>
+      <div class="section">
+        <div class="label">Urgency:</div>
+        <div class="content">{{ lead.urgency }}</div>
+      </div>
+      <div class="section">
+        <div class="label">Original Message:</div>
+        <div class="content">{{ lead.problem }}</div>
+      </div>
+      <div class="section">
+        <div class="label">Summary:</div>
+        <div class="content">{{ lead.summary }}</div>
+      </div>
+      <div class="section">
+        <div class="label">Recommendation:</div>
+        <div class="content">{{ lead.recommendation }}</div>
+      </div>
+      <a class="btn" href="/dashboard">Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>
