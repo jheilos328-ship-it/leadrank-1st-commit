@@ -206,7 +206,6 @@ def submit():
         return (
             "<h2>Error: organization not found.</h2>"
             "<p>Your account does not have a linked organization record.</p>"
-            "<p>Please confirm your email, log in again, and retry signup if needed.</p>"
             "<p><a href=\"/logout\">Logout</a></p>",
             400,
         )
